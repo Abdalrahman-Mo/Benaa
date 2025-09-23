@@ -1,0 +1,122 @@
+// Additional Sass styles for construction platform
+// This file demonstrates the Sass capability as requested
+
+// Variables
+$primary-color: #ff9800;
+$primary-light: #ffb74d;
+$primary-dark: #f57c00;
+$transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+// Mixins
+@mixin card-hover {
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@mixin gradient-primary {
+  background: linear-gradient(135deg, $primary-color, $primary-light);
+}
+
+// Construction specific components
+.construction-card {
+  transition: $transition-smooth;
+  @include card-hover;
+  
+  &.featured {
+    @include gradient-primary;
+    color: white;
+    
+    .card-icon {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+  }
+}
+
+.hero-overlay {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg, 
+      rgba($primary-color, 0.8) 0%, 
+      rgba($primary-dark, 0.6) 50%, 
+      rgba(0, 0, 0, 0.4) 100%
+    );
+  }
+}
+
+// Arabic RTL specific styles
+.rtl-container {
+  direction: rtl;
+  text-align: right;
+  
+  .flex-reverse {
+    flex-direction: row-reverse;
+  }
+  
+  .space-reverse > * + * {
+    margin-right: 1rem;
+    margin-left: 0;
+  }
+}
+
+// Animation keyframes
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Utility classes
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s ease-out;
+}
+
+// Construction-themed shadows
+.construction-shadow {
+  box-shadow: 0 10px 30px rgba($primary-color, 0.2);
+}
+
+// Responsive text sizes for Arabic
+.text-arabic {
+  line-height: 1.8;
+  
+  &.large {
+    font-size: 1.25rem;
+    line-height: 2;
+  }
+  
+  &.xl {
+    font-size: 1.5rem;
+    line-height: 2.2;
+  }
+}

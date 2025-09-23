@@ -1,0 +1,217 @@
+================================================================================
+                           BINAA PROJECT STRUCTURE & WEBSITE TABS
+================================================================================
+
+PROJECT OVERVIEW:
+- Project Name: Binaa (بِناء) - Construction Platform
+- Technology Stack: React + TypeScript + Vite + Tailwind CSS + Shadcn/UI
+- Language: Arabic (RTL Support)
+- Framework: React Router for navigation
+
+================================================================================
+                                FOLDER STRUCTURE
+================================================================================
+
+Binaa/
+├── 📁 public/                          # Static assets
+│   ├── placeholder.svg                 # Placeholder image
+│   └── robots.txt                     # SEO robots file
+│
+├── 📁 src/                            # Source code directory
+│   ├── 📁 assets/                     # Image assets
+│   │   ├── about-us.jpg              # About us page image
+│   │   ├── construction-academy.jpg  # Academy page image
+│   │   ├── construction-team.jpg     # Team image
+│   │   ├── corporate-solutions.jpg   # Corporate solutions image
+│   │   ├── digital-warranty.jpg      # Digital warranty image
+│   │   ├── eng-1.jpg, eng-2.jpg, eng-3.jpg  # Engineer images
+│   │   ├── hero-construction.jpg     # Hero section image
+│   │   ├── hero.jpg, hero.png        # Main hero images
+│   │   ├── materials-warehouse.jpg   # Materials warehouse image
+│   │   ├── our-services.jpg          # Services image
+│   │   ├── ourwork-1_0.jpg, ourwork-1_1.jpg  # Portfolio images
+│   │   ├── ourwork-2_0.jpg, ourwork-2_1.jpg  # Portfolio images
+│   │   ├── ourwork-3_0.jpg, ourwork-3_1.jpg  # Portfolio images
+│   │   ├── smart-calculator.jpg      # Smart calculator image
+│   │   └── web-logo.png              # Website logo
+│   │
+│   ├── 📁 components/                 # React components
+│   │   ├── CallToAction.tsx          # Call-to-action component
+│   │   ├── Features.tsx              # Features section component
+│   │   ├── Footer.tsx                # Footer component
+│   │   ├── Header.tsx                # Header/Navigation component
+│   │   ├── Hero.tsx                  # Hero section component
+│   │   ├── Problems.tsx              # Problems section component
+│   │   └── 📁 ui/                    # Shadcn/UI components
+│   │       ├── accordion.tsx         # Accordion component
+│   │       ├── alert-dialog.tsx      # Alert dialog component
+│   │       ├── alert.tsx             # Alert component
+│   │       ├── aspect-ratio.tsx      # Aspect ratio component
+│   │       ├── avatar.tsx            # Avatar component
+│   │       ├── badge.tsx             # Badge component
+│   │       ├── breadcrumb.tsx        # Breadcrumb component
+│   │       ├── button.tsx            # Button component
+│   │       ├── calendar.tsx          # Calendar component
+│   │       ├── card.tsx              # Card component
+│   │       ├── carousel.tsx          # Carousel component
+│   │       ├── chart.tsx             # Chart component
+│   │       ├── checkbox.tsx          # Checkbox component
+│   │       ├── collapsible.tsx       # Collapsible component
+│   │       ├── command.tsx           # Command component
+│   │       ├── context-menu.tsx      # Context menu component
+│   │       ├── dialog.tsx            # Dialog component
+│   │       ├── drawer.tsx            # Drawer component
+│   │       ├── dropdown-menu.tsx     # Dropdown menu component
+│   │       ├── form.tsx              # Form component
+│   │       ├── hover-card.tsx        # Hover card component
+│   │       ├── index.ts              # UI components index
+│   │       ├── input-otp.tsx         # OTP input component
+│   │       ├── input.tsx             # Input component
+│   │       ├── label.tsx             # Label component
+│   │       ├── menubar.tsx           # Menu bar component
+│   │       ├── navigation-menu.tsx   # Navigation menu component
+│   │       ├── pagination.tsx        # Pagination component
+│   │       ├── popover.tsx           # Popover component
+│   │       ├── progress.tsx          # Progress component
+│   │       ├── radio-group.tsx       # Radio group component
+│   │       ├── resizable.tsx         # Resizable component
+│   │       ├── scroll-area.tsx       # Scroll area component
+│   │       ├── select.tsx            # Select component
+│   │       ├── separator.tsx         # Separator component
+│   │       ├── sheet.tsx             # Sheet component
+│   │       ├── sidebar.tsx           # Sidebar component
+│   │       ├── skeleton.tsx          # Skeleton component
+│   │       ├── slider.tsx            # Slider component
+│   │       ├── sonner.tsx            # Sonner toast component
+│   │       ├── switch.tsx            # Switch component
+│   │       ├── table.tsx             # Table component
+│   │       ├── tabs.tsx              # Tabs component
+│   │       ├── textarea.tsx          # Textarea component
+│   │       ├── toast.tsx             # Toast component
+│   │       ├── toaster.tsx           # Toaster component
+│   │       ├── toggle-group.tsx      # Toggle group component
+│   │       ├── toggle.tsx            # Toggle component
+│   │       ├── tooltip.tsx           # Tooltip component
+│   │       └── use-toast.ts          # Toast hook
+│   │
+│   ├── 📁 hooks/                     # Custom React hooks
+│   │   ├── use-mobile.tsx            # Mobile detection hook
+│   │   └── use-toast.ts              # Toast hook
+│   │
+│   ├── 📁 lib/                       # Utility libraries
+│   │   └── utils.ts                  # Utility functions
+│   │
+│   ├── 📁 pages/                     # Page components (Website Tabs)
+│   │   ├── Index.tsx                 # Home page (الرئيسية)
+│   │   ├── StartProject.tsx          # Start Project page (ابدأ مشروعك)
+│   │   ├── Freelance.tsx             # Freelance page (العمل الحر)
+│   │   ├── Academy.tsx               # Academy page (الأكاديمية)
+│   │   ├── Companies.tsx             # Companies page (الشركات)
+│   │   ├── Resources.tsx             # Resources page (المصادر)
+│   │   ├── About.tsx                 # About page (من نحن)
+│   │   ├── Support.tsx               # Support page (الدعم)
+│   │   ├── Account.tsx               # Account page (حسابي)
+│   │   └── NotFound.tsx              # 404 Not Found page
+│   │
+│   ├── 📁 styles/                    # Styling files
+│   │   └── components.scss           # SCSS component styles
+│   │
+│   ├── App.tsx                       # Main App component with routing
+│   ├── App.css                       # App-specific styles
+│   ├── index.css                     # Global styles
+│   ├── main.tsx                      # Application entry point
+│   └── vite-env.d.ts                 # Vite environment types
+│
+├── 📄 Configuration Files
+├── bun.lockb                         # Bun lock file
+├── components.json                   # Shadcn/UI components configuration
+├── eslint.config.js                  # ESLint configuration
+├── index.html                        # HTML entry point
+├── package.json                      # Project dependencies and scripts
+├── package-lock.json                 # NPM lock file
+├── postcss.config.js                 # PostCSS configuration
+├── PROJECT_STRUCTURE.md              # Project structure documentation
+├── README.md                         # Project readme
+├── tailwind.config.ts                # Tailwind CSS configuration
+├── tsconfig.app.json                 # TypeScript app configuration
+├── tsconfig.json                     # TypeScript configuration
+├── tsconfig.node.json                # TypeScript node configuration
+└── vite.config.ts                    # Vite build configuration
+
+================================================================================
+                                WEBSITE TABS/NAVIGATION
+================================================================================
+
+The website offers the following navigation tabs (in Arabic):
+
+1. 🏠 الرئيسية (Home)
+   - Route: "/"
+   - Component: Index.tsx
+   - Description: Main landing page
+
+2. 🚀 ابدأ مشروعك (Start Your Project)
+   - Route: "/start-project"
+   - Component: StartProject.tsx
+   - Description: Project initiation page
+
+3. 💼 العمل الحر (Freelance)
+   - Route: "/freelance"
+   - Component: Freelance.tsx
+   - Description: Freelance services page
+
+4. 🎓 الأكاديمية (Academy)
+   - Route: "/academy"
+   - Component: Academy.tsx
+   - Description: Educational/training platform
+
+5. 🏢 الشركات (Companies)
+   - Route: "/companies"
+   - Component: Companies.tsx
+   - Description: Corporate solutions page
+
+6. 📚 المصادر (Resources)
+   - Route: "/resources"
+   - Component: Resources.tsx
+   - Description: Resources and materials page
+
+7. ℹ️ من نحن (About Us)
+   - Route: "/about"
+   - Component: About.tsx
+   - Description: Company information page
+
+8. 🆘 الدعم (Support)
+   - Route: "/support"
+   - Component: Support.tsx
+   - Description: Customer support page
+
+9. 👤 حسابي (My Account)
+   - Route: "/account"
+   - Component: Account.tsx
+   - Description: User account management
+   - Note: This is accessible via header button, not main navigation
+
+================================================================================
+                                TECHNICAL DETAILS
+================================================================================
+
+TECHNOLOGY STACK:
+- Frontend Framework: React 18.3.1
+- Language: TypeScript 5.8.3
+- Build Tool: Vite 5.4.19
+- Styling: Tailwind CSS 3.4.17 + SCSS
+- UI Components: Shadcn/UI (Radix UI based)
+- Routing: React Router DOM 6.30.1
+- State Management: TanStack Query 5.83.0
+- Form Handling: React Hook Form 7.61.1
+- Icons: Lucide React 0.462.0
+- Notifications: Sonner 1.7.4
+
+KEY FEATURES:
+- RTL (Right-to-Left) support for Arabic language
+- Responsive design with mobile-first approach
+- Modern UI components with accessibility support
+- Type-safe development with TypeScript
+- Component-based architecture
+- Route-based navigation system
+
+================================================================================
