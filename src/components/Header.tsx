@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import Logo from "../assets/logo.jpg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,20 +18,13 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 w-full z-50 bg-white backdrop-blur-md border-b border-border">
       <div className="container-custom">
         <div className="flex items-center justify-between h-16" dir="rtl">
           {/* Logo */}
           <Link to="/">
             <div className="flex items-center space-x-2 space-x-reverse">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">
-                  ب
-                </span>
-              </div>
-              <span className="font-bold text-xl text-foreground font-cairo">
-                بِناء
-              </span>
+              <img src={Logo} alt="logo" className=" h-16" />
             </div>
           </Link>
 
