@@ -44,7 +44,7 @@ const Header = () => {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden lg:flex items-center space-x-4 space-x-reverse">
+          <div className="hidden lg:flex items-center space-x-4  space-x-reverse border-[#4e4e4e] border-r-[2px] pr-[22px]">
             <a
               href="/account"
               className="text-foreground hover:text-primary transition-smooth font-medium font-cairo"
