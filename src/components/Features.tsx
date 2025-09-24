@@ -73,7 +73,7 @@ const Features = () => {
         "منصة متكاملة لإدارة مشاريع الشركات الكبرى مع أدوات متقدمة للمتابعة والتحكم",
       image: corporateImage,
       color: "bg-orange-100 text-orange-600",
-      isAvailable: true,
+      isAvailable: false,
       path: "/problems-solution",
     },
   ];

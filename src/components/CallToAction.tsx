@@ -10,15 +10,15 @@ const CallToAction = () => {
 
   return (
     <section
-      className="section-padding bg-gradient-to-br from-primary/10 via-primary-light/5 to-primary/5"
+      className="section-padding bg-gradient-to-r from-[#5d4f3f]  to-[#2f2e2c]"
       dir="rtl"
     >
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 font-cairo">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl text-white font-bold text-foreground mb-6 font-cairo">
             ابدأ رحلتك معنا اليوم
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-cairo">
+          <p className="text-lg md:text-xl text-white text-muted-foreground max-w-3xl mx-auto leading-relaxed font-cairo">
             انضم إلى آلاف العملاء الذين وثقوا بخدماتنا لإنجاز مشاريعهم بنجاح
           </p>
         </div>
@@ -26,7 +26,7 @@ const CallToAction = () => {
         {/* User Paths */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {/* Project Owners */}
-          <div className="card-feature text-center bg-gradient-card">
+          <div className="card-feature text-center bg-gradient-card border-[1px] border-white">
             <div className="flex justify-center mb-6">
               <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center">
                 <Users className="w-10 h-10 text-primary" />
@@ -51,7 +51,7 @@ const CallToAction = () => {
           </div>
 
           {/* Professionals */}
-          <div className="card-feature text-center bg-gradient-card">
+          <div className="card-feature text-center bg-gradient-card border-[1px] border-white">
             <div className="flex justify-center mb-6">
               <div className="w-20 h-20 bg-secondary/50 rounded-2xl flex items-center justify-center">
                 <UserCheck className="w-10 h-10 text-secondary-foreground" />
@@ -59,7 +59,7 @@ const CallToAction = () => {
             </div>
 
             <h3 className="text-2xl font-bold text-foreground mb-4 font-cairo">
-              المهندسين والفنيين
+              المهندسين وصنايعية
             </h3>
 
             <p className="text-muted-foreground leading-relaxed mb-8 font-cairo">
@@ -78,12 +78,12 @@ const CallToAction = () => {
         {/* Final Statistics */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {finalStats.map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-smooth">
+            <div key={index} className="text-center ">
+              <div className=" rounded-xl p-6 hover:shadow-lg hover:shadow-xl transition-smooth">
                 <div className="text-3xl md:text-4xl font-bold text-primary mb-2 font-cairo">
                   {stat.number}
                 </div>
-                <div className="text-sm md:text-base text-muted-foreground font-medium font-cairo">
+                <div className="text-white text-sm md:text-base text-muted-foreground font-medium font-cairo">
                   {stat.label}
                 </div>
               </div>

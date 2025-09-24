@@ -14,6 +14,7 @@ import Account from "./pages/Account";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import SmartCalculator from "./pages/SmartCalculator";
+import Suppliers from "./pages/Suppliers";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/smart-calculator" element={<SmartCalculator />} />
+          <Route path="/suppliers" element={<Suppliers />} />
           <Route path="/start-project" element={<StartProject />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/freelance" element={<Freelance />} />
