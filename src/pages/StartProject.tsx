@@ -4,8 +4,15 @@ import Footer from "@/components/Footer";
 import suc_1 from "../assets/ourwork-1_0.jpg";
 import suc_2 from "../assets/ourwork-2_0.jpg";
 import suc_3 from "../assets/ourwork-3_0.jpg";
+
+// import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+// import { Textarea } from "@/components/ui/textarea";
+import { ArrowLeft } from "lucide-react";
+
 import {
-  Card,
+  // Card,
   CardContent,
   CardDescription,
   CardHeader,
@@ -30,6 +37,46 @@ const StartProject = () => {
   const [projectType, setProjectType] = useState("");
   const [budget, setBudget] = useState("");
   const [timeline, setTimeline] = useState("");
+
+  const [selectedProjectType, setSelectedProjectType] = useState("");
+  const [selectedBudget, setSelectedBudget] = useState("");
+  const [selectedTimeline, setSelectedTimeline] = useState("");
+  const [additionalDetails, setAdditionalDetails] = useState("");
+
+  const projectTypes = [
+    "منزل سكني",
+    "فيلا",
+    "مبنى تجاري",
+    "مطعم أو مقهى",
+    "مكتب",
+    "مصنع أو ورشة",
+    "مشروع آخر",
+  ];
+
+  const budgetRanges = [
+    "أقل من 100,000 جنيه",
+    "100,000 - 500,000 جنيه",
+    "500,000 - 1,000,000 جنيه",
+    "1,000,000 - 3,000,000 جنيه",
+    "أكثر من 3,000,000 جنيه",
+  ];
+
+  const timelines = [
+    "أقل من 3 أشهر",
+    "3 - 6 أشهر",
+    "6 - 12 شهر",
+    "أكثر من سنة",
+  ];
+
+  const handleSubmit = () => {
+    // Handle form submission
+    console.log({
+      projectType: selectedProjectType,
+      budget: selectedBudget,
+      timeline: selectedTimeline,
+      details: additionalDetails,
+    });
+  };
 
   const services = [
     {
@@ -184,181 +231,124 @@ const StartProject = () => {
         </div>
       </section>
 
-      {/* Project Details Form */}
-      <section className="py-20 bg-muted/20" dir="rtl">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-foreground mb-4 font-cairo">
-                تفاصيل مشروعك
-              </h2>
-              <p className="text-xl text-muted-foreground font-cairo">
-                أخبرنا عن مشروعك لنقدم لك أفضل الحلول المناسبة
-              </p>
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-foreground mb-4">
+              تفاصيل مشروعك
+            </h1>
+            <p className="text-xl text-muted-foreground">
+              أخبرنا عن مشروعك لنقدم لك أفضل الحلول المناسبة
+            </p>
+          </div>
+
+          <Card className="p-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {/* Project Type Section */}
+              <div>
+                <h2 className="text-2xl font-semibold text-foreground mb-6">
+                  نوع المشروع
+                </h2>
+                <div className="space-y-3">
+                  {projectTypes.map((type) => (
+                    <div
+                      key={type}
+                      onClick={() => setSelectedProjectType(type)}
+                      className={`p-4 rounded-lg border cursor-pointer transition-all duration-200 ${
+                        selectedProjectType === type
+                          ? "bg-primary/10 border-primary text-primary"
+                          : "bg-white border-gray-200 hover:border-primary/50 hover:bg-primary/5"
+                      }`}
+                    >
+                      <span className="font-medium">{type}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Budget Section */}
+              <div>
+                <h2 className="text-2xl font-semibold text-foreground mb-6">
+                  الميزانية المتوقعة
+                </h2>
+                <div className="space-y-3">
+                  {budgetRanges.map((budget) => (
+                    <div
+                      key={budget}
+                      onClick={() => setSelectedBudget(budget)}
+                      className={`p-4 rounded-lg border cursor-pointer transition-all duration-200 ${
+                        selectedBudget === budget
+                          ? "bg-primary/10 border-primary text-primary"
+                          : "bg-white border-gray-200 hover:border-primary/50 hover:bg-primary/5"
+                      }`}
+                    >
+                      <span className="font-medium">{budget}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Timeline Section */}
+              <div>
+                <h2 className="text-2xl font-semibold text-foreground mb-6">
+                  الجدول الزمني المطلوب
+                </h2>
+                <div className="space-y-3">
+                  {timelines.map((timeline) => (
+                    <div
+                      key={timeline}
+                      onClick={() => setSelectedTimeline(timeline)}
+                      className={`p-4 rounded-lg border cursor-pointer transition-all duration-200 ${
+                        selectedTimeline === timeline
+                          ? "bg-primary/10 border-primary text-primary"
+                          : "bg-white border-gray-200 hover:border-primary/50 hover:bg-primary/5"
+                      }`}
+                    >
+                      <span className="font-medium">{timeline}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Additional Details Section */}
+              <div>
+                <h2 className="text-2xl font-semibold text-foreground mb-6">
+                  تفاصيل إضافية
+                </h2>
+                <div className="space-y-4">
+                  <Textarea
+                    placeholder="أكتب أي تفاصيل إضافية عن مشروعك، المساحة، الموقع، المتطلبات الخاصة..."
+                    value={additionalDetails}
+                    onChange={(e) => setAdditionalDetails(e.target.value)}
+                    className="min-h-32 resize-none"
+                    maxLength={500}
+                  />
+                  <div className="flex justify-between items-center text-sm text-muted-foreground">
+                    <span>الحد الأقصى 500 حرف</span>
+                    <span>{additionalDetails.length}/500</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <Card>
-              <CardContent className="p-8">
-                <form className="space-y-8">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="projectType" className="font-cairo">
-                        نوع المشروع
-                      </Label>
-                      <Select
-                        value={projectType}
-                        onValueChange={setProjectType}
-                      >
-                        <SelectTrigger>
-                          <SelectValue placeholder="اختر نوع المشروع" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="residential">منزل سكني</SelectItem>
-                          <SelectItem value="villa">فيلا</SelectItem>
-                          <SelectItem value="commercial">مبنى تجاري</SelectItem>
-                          <SelectItem value="restaurant">
-                            مطعم أو مقهى
-                          </SelectItem>
-                          <SelectItem value="office">مكتب</SelectItem>
-                          <SelectItem value="factory">مصنع أو ورشة</SelectItem>
-                          <SelectItem value="other">مشروع آخر</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
+            {/* Submit Button */}
+            <div className="mt-12 text-center">
+              <Button
+                onClick={handleSubmit}
+                className="bg-primary hover:bg-primary/90 text-white px-12 py-4 text-lg font-semibold rounded-xl"
+                size="lg"
+              >
+                أبدأ مشروعي الآن
+                <ArrowLeft className="mr-2 h-5 w-5" />
+              </Button>
 
-                    <div className="space-y-2">
-                      <Label className="font-cairo">الميزانية المتوقعة</Label>
-                      <RadioGroup value={budget} onValueChange={setBudget}>
-                        <div className="flex items-center space-x-2 space-x-reverse">
-                          <RadioGroupItem value="under-100k" id="under-100k" />
-                          <label htmlFor="under-100k" className="font-cairo">
-                            أقل من 100,000 جنيه
-                          </label>
-                        </div>
-                        <div className="flex items-center space-x-2 space-x-reverse">
-                          <RadioGroupItem value="100k-500k" id="100k-500k" />
-                          <label htmlFor="100k-500k" className="font-cairo">
-                            100,000 - 500,000 جنيه
-                          </label>
-                        </div>
-                        <div className="flex items-center space-x-2 space-x-reverse">
-                          <RadioGroupItem value="500k-1m" id="500k-1m" />
-                          <label htmlFor="500k-1m" className="font-cairo">
-                            500,000 - 1,000,000 جنيه
-                          </label>
-                        </div>
-                        <div className="flex items-center space-x-2 space-x-reverse">
-                          <RadioGroupItem value="1m-3m" id="1m-3m" />
-                          <label htmlFor="1m-3m" className="font-cairo">
-                            1,000,000 - 3,000,000 جنيه
-                          </label>
-                        </div>
-                        <div className="flex items-center space-x-2 space-x-reverse">
-                          <RadioGroupItem value="over-3m" id="over-3m" />
-                          <label htmlFor="over-3m" className="font-cairo">
-                            أكثر من 3,000,000 جنيه
-                          </label>
-                        </div>
-                      </RadioGroup>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label className="font-cairo">الجدول الزمني المطلوب</Label>
-                    <RadioGroup
-                      value={timeline}
-                      onValueChange={setTimeline}
-                      className="flex flex-wrap gap-4"
-                    >
-                      <div className="flex items-center space-x-2 space-x-reverse">
-                        <RadioGroupItem value="under-3m" id="under-3m" />
-                        <label htmlFor="under-3m" className="font-cairo">
-                          أقل من 3 أشهر
-                        </label>
-                      </div>
-                      <div className="flex items-center space-x-2 space-x-reverse">
-                        <RadioGroupItem value="3-6m" id="3-6m" />
-                        <label htmlFor="3-6m" className="font-cairo">
-                          3 - 6 أشهر
-                        </label>
-                      </div>
-                      <div className="flex items-center space-x-2 space-x-reverse">
-                        <RadioGroupItem value="6-12m" id="6-12m" />
-                        <label htmlFor="6-12m" className="font-cairo">
-                          6 - 12 شهر
-                        </label>
-                      </div>
-                      <div className="flex items-center space-x-2 space-x-reverse">
-                        <RadioGroupItem value="over-1y" id="over-1y" />
-                        <label htmlFor="over-1y" className="font-cairo">
-                          أكثر من سنة
-                        </label>
-                      </div>
-                      <div className="flex items-center space-x-2 space-x-reverse">
-                        <RadioGroupItem value="flexible" id="flexible" />
-                        <label htmlFor="flexible" className="font-cairo">
-                          مرن
-                        </label>
-                      </div>
-                    </RadioGroup>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="details" className="font-cairo">
-                      تفاصيل إضافية
-                    </Label>
-                    <Textarea
-                      id="details"
-                      placeholder="أخبرنا عن رؤيتك ومتطلباتك الخاصة..."
-                      className="min-h-32"
-                      maxLength={500}
-                    />
-                    <p className="text-sm text-muted-foreground font-cairo">
-                      الحد الأقصى 500 حرف
-                    </p>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="name" className="font-cairo">
-                        الاسم الكامل
-                      </Label>
-                      <Input id="name" placeholder="أدخل اسمك الكامل" />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="phone" className="font-cairo">
-                        رقم الهاتف
-                      </Label>
-                      <Input id="phone" placeholder="أدخل رقم الهاتف" />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="email" className="font-cairo">
-                      البريد الإلكتروني
-                    </Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="أدخل بريدك الإلكتروني"
-                    />
-                  </div>
-
-                  <div className="text-center">
-                    <Button size="lg" className="btn-primary font-cairo px-12">
-                      ابدأ مشروعي الآن
-                    </Button>
-                    <p className="text-sm text-muted-foreground mt-4 font-cairo">
-                      سيتم التواصل معك خلال 24 ساعة من فريق متخصص
-                    </p>
-                  </div>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
+              <p className="mt-6 text-sm text-muted-foreground">
+                سيتم التواصل معك خلال 24 ساعة من فريق متخصص
+              </p>
+            </div>
+          </Card>
         </div>
       </section>
-
       {/* How We Work */}
       <section className="py-20" dir="rtl">
         <div className="container-custom">
