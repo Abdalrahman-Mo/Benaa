@@ -34,7 +34,7 @@ const Features = () => {
       image: calculatorImage,
       color: "bg-green-100 text-green-600",
       isAvailable: true,
-      path: "/smart-calc",
+      path: "/smart-calculator",
     },
     {
       icon: Users,

@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import Logo from "../assets/logo.jpg";
+import Logo from "../assets/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
     { label: "الرئيسية", href: "/" },
+    { label: "الحاسبة الذكية", href: "/smart-calculator" },
     { label: "ابدأ مشروعك", href: "/start-project" },
     { label: "العمل الحر", href: "/freelance" },
     { label: "الأكاديمية", href: "/academy" },
