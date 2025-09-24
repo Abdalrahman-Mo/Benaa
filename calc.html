@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة تكلفة البناء</title>
+    <style>
+        /* إضافة صورة خلفية داكنة مع تراكب لوني */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            /* **الخلفية الجديدة المتعلقة بالبناء** */
+            background: url('http://googleusercontent.com/image_collection/image_retrieval/11308351594982840023_0') no-repeat center center fixed;
+            background-size: cover;
+            color: #f1f1f1; /* لون النص الأساسي فاتح ليناسب الخلفية الداكنة */
+            padding-top: 50px;
+            min-height: 100vh;
+        }
+
+        /* تراكب لوني داكن على الخلفية لإضافة تأثير الغموض والشفافية */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* طبقة شفافة سوداء */
+            z-index: -1;
+        }
+
+        /* تنسيق الكونتينر ليصبح شفافًا ومناسبًا للخلفية */
+        .container {
+            max-width: 650px;
+            margin: auto;
+            /* خلفية شفافة ضبابية (Glassmorphism effect) */
+            background: rgba(255, 255, 255, 0.08); 
+            backdrop-filter: blur(8px); /* تأثير التغبيش */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #FFC300; /* لون ذهبي/أصفر مميز */
+            font-size: 2rem;
+            border-bottom: 2px solid rgba(255, 195, 0, 0.3);
+            padding-bottom: 10px;
+        }
+
+        label, select, input[type="number"] {
+            display: block;
+            margin: 15px 0 5px;
+            font-size: 1.1rem;
+            color: #FFC300;
+        }
+
+        /* تنسيق حقول الإدخال والاختيار */
+        input[type="number"], select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.4);
+            color: #f1f1f1;
+            font-size: 1rem;
+            box-sizing: border-box; 
+        }
+        
+        input[type="number"]::placeholder {
+            color: #aaa;
+        }
+        
+        /* تنسيق صناديق الاختيار لتتناسب مع التنسيق الجديد */
+        .checkboxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            padding: 10px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .checkboxes label {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            font-size: 0.95rem;
+            color: #f1f1f1;
+            background: rgba(255, 255, 255, 0.05); 
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+        
+        .checkboxes label:hover {
+            background: rgba(255, 195, 0, 0.1);
+        }
+
+        .checkboxes input[type="checkbox"] {
+            margin-left: 8px;
+            width: auto;
+        }
+
+        /* تنسيق زر الحساب */
+        button {
+            background: #FFC300; 
+            color: #1a1a1a;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            transition: background 0.3s, transform 0.1s;
+        }
+
+        button:hover { 
+            background: #e6b200; 
+            transform: translateY(-1px);
+        }
+
+        /* تنسيق جدول النتائج */
+        table {
+            width: 100%;
+            margin-top: 30px;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.5); 
+            border-radius: 10px;
+            overflow: hidden; 
+        }
+
+        th, td {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            text-align: center;
+        }
+
+        th { 
+            background: rgba(255, 195, 0, 0.2);
+            color: #FFC300;
+            font-weight: bold;
+        }
+        
+        td {
+            color: #f1f1f1;
+        }
+        
+        tbody tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .total {
+            font-weight: bold;
+            background: #FFC300 !important; 
+            color: #1a1a1a;
+            font-size: 1.1rem;
+        }
+        
+        .total td {
+            color: #1a1a1a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>حاسبة تكلفة البناء</h2>
+        <label for="area">أدخل مساحة المبنى (م²):</label>
+        <input type="number" id="area" placeholder="مثال: 120">
+
+        <label for="region">اختر المنطقة:</label>
+        <select id="region">
+            <option value="cairo">القاهرة الكبرى</option>
+            <option value="cities">باقي المدن</option>
+            <option value="villages">القرى</option>
+        </select>
+
+        <label>اختر البنود المراد حسابها:</label>
+        <div class="checkboxes" id="items"></div>
+
+        <button onclick="calculate()">احسب التكلفة</button>
+
+        <table id="resultTable" style="display:none">
+            <thead>
+                <tr>
+                    <th>البند</th>
+                    <th>تكلفة المتر</th>
+                    <th>إجمالي التكلفة</th>
+                </tr>
+            </thead>
+            <tbody id="resultBody"></tbody>
+            <tfoot>
+                <tr class="total">
+                    <td colspan="2">المجموع الكلي</td>
+                    <td id="totalCost"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <script>
+        const costData = {
+          cairo: {
+            "الحفر": 77,
+            "الأساسات": 180,
+            "الهيكل الخرساني": 460,
+            "المباني (الطوب)": 320,
+            "العزل": 50,
+            "الكهرباء": 60,
+            "السباكة": 80,
+            "النجارة": 125,
+            "المحارة": 80,
+            "الدهانات": 45,
+            "الأرضيات": 45,
+            "التشطيبات النهائية": 170,
+          },
+          cities: {
+            "الحفر": 44,
+            "الأساسات": 95,
+            "الهيكل الخرساني": 266,
+            "المباني (الطوب)": 180,
+            "العزل": 30,
+            "الكهرباء": 35,
+            "السباكة": 45,
+            "النجارة": 70,
+            "المحارة": 45,
+            "الدهانات": 30,
+            "الأرضيات": 29,
+            "التشطيبات النهائية": 92,
+          },
+          villages: {
+            "الحفر": 17,
+            "الأساسات": 35,
+            "الهيكل الخرساني": 99,
+            "المباني (الطوب)": 65,
+            "العزل": 12,
+            "الكهرباء": 13,
+            "السباكة": 17,
+            "النجارة": 27,
+            "المحارة": 20,
+            "الدهانات": 12,
+            "الأرضيات": 11,
+            "التشطيبات النهائية": 36,
+          }
+        };
+
+        // إنشاء Checkboxes
+        const itemsDiv = document.getElementById("items");
+        Object.keys(costData.cairo).forEach(item => {
+          const label = document.createElement("label");
+          label.innerHTML = `<input type='checkbox' value='${item}' checked> ${item}`;
+          itemsDiv.appendChild(label);
+        });
+
+        function calculate() {
+          const area = parseFloat(document.getElementById("area").value);
+          const region = document.getElementById("region").value;
+          const selectedItems = [...document.querySelectorAll('#items input:checked')].map(cb => cb.value);
+            
+          if (!area || area <= 0) {
+            alert("من فضلك أدخل مساحة صحيحة");
+            return;
+          }
+
+          const tbody = document.getElementById("resultBody");
+          tbody.innerHTML = "";
+          let total = 0;
+
+          selectedItems.forEach(item => {
+            const costPerM = costData[region][item];
+            const totalCost = costPerM * area;
+            total += totalCost;
+
+            const row = `<tr>
+              <td>${item}</td>
+              <td>${costPerM} ج.م</td>
+              <td>${totalCost.toLocaleString()} ج.م</td>
+            </tr>`;
+            tbody.innerHTML += row;
+          });
+
+          document.getElementById("totalCost").innerText = total.toLocaleString() + " ج.م";
+          document.getElementById("resultTable").style.display = "table";
+        }
+    </script>
+</body>
+</html>

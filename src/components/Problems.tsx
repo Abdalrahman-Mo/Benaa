@@ -1,48 +1,60 @@
-import { AlertTriangle, DollarSign, Clock, Shield, Package, HelpCircle } from 'lucide-react';
+import {
+  AlertTriangle,
+  DollarSign,
+  Clock,
+  Shield,
+  Package,
+  HelpCircle,
+} from "lucide-react";
 
 const Problems = () => {
   const problems = [
     {
       icon: AlertTriangle,
-      title: 'صعوبة العثور على المقاولين الموثوقين',
-      description: 'تجد صعوبة في العثور على مقاولين محترفين وموثوقين لمشروعك'
+      title: "صعوبة العثور على المقاولين الموثوقين",
+      description: "تجد صعوبة في العثور على مقاولين محترفين وموثوقين لمشروعك",
     },
     {
       icon: DollarSign,
-      title: 'ارتفاع التكاليف غير المتوقعة',
-      description: 'تكاليف إضافية مفاجئة تزيد من ميزانية المشروع'
+      title: "ارتفاع التكاليف غير المتوقعة",
+      description: "تكاليف إضافية مفاجئة تزيد من ميزانية المشروع",
     },
     {
       icon: Clock,
-      title: 'تأخير في مواعيد التسليم',
-      description: 'عدم الالتزام بالمواعيد المحددة للتسليم'
+      title: "تأخير في مواعيد التسليم",
+      description: "عدم الالتزام بالمواعيد المحددة للتسليم",
     },
     {
       icon: Shield,
-      title: 'عدم وجود ضمانات كافية',
-      description: 'نقص في ضمانات الجودة والحماية للعميل'
+      title: "عدم وجود ضمانات كافية",
+      description: "نقص في ضمانات الجودة والحماية للعميل",
     },
     {
       icon: Package,
-      title: 'صعوبة شراء مواد البناء',
-      description: 'تعقيدات في العثور على مواد البناء بأفضل الأسعار'
+      title: "صعوبة شراء مواد البناء",
+      description: "تعقيدات في العثور على مواد البناء بأفضل الأسعار",
     },
     {
       icon: HelpCircle,
-      title: 'نقص الخبرة والاستشارات',
-      description: 'عدم توفر استشارات متخصصة ونصائح مهنية'
-    }
+      title: "نقص الخبرة والاستشارات",
+      description: "عدم توفر استشارات متخصصة ونصائح مهنية",
+    },
   ];
 
   return (
-    <section className="section-padding bg-construction-gray" dir="rtl">
+    <section
+      className="section-padding bg-construction-gray "
+      id="problems-solution"
+      dir="rtl"
+    >
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 font-cairo">
             المشاكل التي نحلها لك
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-cairo">
-            نحن نفهم التحديات التي تواجهها في مشاريع البناء والتشطيب، ولهذا طورنا حلولاً شاملة لكل مشكلة
+            نحن نفهم التحديات التي تواجهها في مشاريع البناء والتشطيب، ولهذا
+            طورنا حلولاً شاملة لكل مشكلة
           </p>
         </div>
 
