@@ -28,7 +28,8 @@ const Suppliers = () => {
       originalPrice: null,
       rating: 4.8,
       reviews: 156,
-      image: "/api/placeholder/300/200",
+      image:
+        "https://th.bing.com/th/id/OIP.jlthPcFAiDQ2fYPp_CVLqwHaHa?w=179&h=180&c=7&r=0&o=7&dpr=2.5&pid=1.7&rm=3",
       category: "الدهانات والديكور",
       available: true,
       supplier: "شركة الألوان المتحدة",
@@ -40,7 +41,8 @@ const Suppliers = () => {
       originalPrice: null,
       rating: 4.7,
       reviews: 203,
-      image: "/api/placeholder/300/200",
+      image:
+        "https://tse1.mm.bing.net/th/id/OIP.6PsIpUr9ri_6ClAi3wuG2gHaHa?pid=ImgDet&w=184&h=184&c=7&dpr=2.5&o=7&rm=3",
       category: "مواد البناء",
       available: true,
       supplier: "مصنع الطوب",
@@ -52,7 +54,8 @@ const Suppliers = () => {
       originalPrice: null,
       rating: 4.9,
       reviews: 445,
-      image: "/api/placeholder/300/200",
+      image:
+        "https://th.bing.com/th/id/OIP.jPyfv22ZCNFm6tOBpU57jwHaGe?w=220&h=192&c=7&r=0&o=7&dpr=2.5&pid=1.7&rm=3",
       category: "مواد البناء",
       available: true,
       supplier: "شركة الأسمنت المصرية",
@@ -64,7 +67,8 @@ const Suppliers = () => {
       originalPrice: 95,
       rating: 4.6,
       reviews: 87,
-      image: "/api/placeholder/300/200",
+      image:
+        "https://th.bing.com/th/id/OIP.BvGv66Nx17J4WpBfVqUzhgHaHa?w=188&h=188&c=7&r=0&o=7&dpr=2.5&pid=1.7&rm=3",
       category: "أدوات السلامة",
       available: true,
       supplier: "متجر الأمان المهني",
@@ -76,7 +80,8 @@ const Suppliers = () => {
       originalPrice: null,
       rating: 4.8,
       reviews: 312,
-      image: "/api/placeholder/300/200",
+      image:
+        "https://th.bing.com/th/id/OIP.AcngCptF2MI14PU9N6s7lgHaHa?w=177&h=180&c=7&r=0&o=7&dpr=2.5&pid=1.7&rm=3",
       category: "الأرضيات والحوائط",
       available: true,
       supplier: "شركة السيراميك الحديث",
@@ -88,7 +93,8 @@ const Suppliers = () => {
       originalPrice: null,
       rating: 4.9,
       reviews: 156,
-      image: "/api/placeholder/300/200",
+      image:
+        "https://th.bing.com/th/id/OIP.IM8Gi9_poYTChORIObXmCwHaG5?w=194&h=181&c=7&r=0&o=7&dpr=2.5&pid=1.7&rm=3",
       category: "الكهرباء والسباكة",
       available: true,
       supplier: "متجر الأدوات الكهربائية",
@@ -154,7 +160,7 @@ const Suppliers = () => {
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   {product.available && (
                     <Badge className="absolute top-3 left-3 bg-green-500 text-white">

@@ -23,7 +23,7 @@ const Features = () => {
         "تسوق مواد البناء من أفضل الموردين بأسعار تنافسية مع ضمان الجودة والتوصيل السريع",
       image: materialsImage,
       color: "bg-blue-100 text-blue-600",
-      isAvailable: false,
+      isAvailable: true,
       path: "/suppliers",
     },
     {
