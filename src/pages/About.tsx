@@ -27,21 +27,26 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-
-      <section className="pt-20 pb-16 bg-gradient-subtle" dir="rtl">
+      className=""
+      <section
+        className=" relative h-96 bg-cover bg-center flex items-center justify-center pt-20 pb-16 bg-gradient-subtle"
+        style={{
+          backgroundImage: `linear-gradient(#ff9900, #F2C94C)`,
+        }}
+        dir="rtl"
+      >
         <div className="container-custom">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl font-bold text-foreground mb-6 font-cairo">
+          <div className="text-center  max-w-4xl mx-auto">
+            <h1 className="text-5xl font-bold text-white text-foreground mb-6 font-cairo">
               من نحن
             </h1>
-            <p className="text-xl text-muted-foreground font-cairo leading-relaxed">
+            <p className="text-xl text-muted-foreground text-white font-cairo leading-relaxed">
               رواد في مجال البناء والتشييد، نقدم حلولاً متكاملة وخدمات عالية
               الجودة
             </p>
           </div>
         </div>
       </section>
-
       <section className="py-20" dir="rtl">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
@@ -67,7 +72,7 @@ const About = () => {
               رؤيتنا ورسالتنا
             </h2>
             <div className="grid md:grid-cols-2 gap-12">
-              <div>
+              <div className="border-2 border-foreground/10 p-4 rounded-xl">
                 <h3 className="text-2xl font-bold text-foreground mb-4 font-cairo">
                   رؤيتنا
                 </h3>
@@ -77,7 +82,7 @@ const About = () => {
                   تطوير المجتمع.
                 </p>
               </div>
-              <div>
+              <div className="border-2 border-foreground/10 p-4 rounded-xl">
                 <h3 className="text-2xl font-bold text-foreground mb-4 font-cairo">
                   رسالتنا
                 </h3>
@@ -93,7 +98,6 @@ const About = () => {
           </div>
         </div>
       </section>
-
       <Footer />
     </div>
   );

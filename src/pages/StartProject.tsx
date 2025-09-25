@@ -172,13 +172,20 @@ const StartProject = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-subtle" dir="rtl">
+
+      <section
+        className="pt-20 pb-16 bg-gradient-subtle relative h-96 bg-cover bg-center flex items-center justify-center"
+        dir="rtl"
+        style={{
+          backgroundImage: `linear-gradient(#ff9900, #F2C94C)`,
+        }}
+      >
         <div className="container-custom">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl font-bold text-foreground mb-6 font-cairo">
+            <h1 className="text-5xl font-bold text-foreground  text-white mb-6 font-cairo">
               ابدأ مشروعك
             </h1>
-            <p className="text-xl text-muted-foreground font-cairo leading-relaxed">
+            <p className="text-xl text-muted-foreground font-cairo text-white leading-relaxed">
               حوّل حلمك إلى واقع مع خبراء البناء والتشييد. نوفر لك كل ما تحتاجه
               لبناء مشروعك بأعلى معايير الجودة
             </p>

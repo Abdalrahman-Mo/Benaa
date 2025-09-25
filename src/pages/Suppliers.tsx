@@ -7,6 +7,8 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Heart, Star, ShoppingCart, Phone, Mail } from "lucide-react";
 
+// import SuppliersHero from "../assets/about-us.jpg";
+
 const Suppliers = () => {
   const [activeFilter, setActiveFilter] = useState("الكل");
 
@@ -105,7 +107,7 @@ const Suppliers = () => {
       <section
         className="relative h-96 bg-cover bg-center flex items-center justify-center"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/api/placeholder/1200/400')`,
+          backgroundImage: `linear-gradient(#ff9900, #F2C94C)`,
         }}
       >
         <div className="text-center text-white">
@@ -218,10 +220,15 @@ const Suppliers = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gray-800 text-white py-16">
+      <section
+        className=" text-white py-16"
+        style={{
+          backgroundImage: `linear-gradient(#ff9900, #F2C94C)`,
+        }}
+      >
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">لم تجد ما تبحث عنه؟</h2>
-          <p className="text-xl mb-8 text-gray-300">
+          <p className="text-xl mb-8 text-white">
             تواصل معنا وسنساعدك في العثور على أفضل المواد والأدوات المطلوبة
             لمشروعك
           </p>
