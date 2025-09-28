@@ -1,5 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { ArrowDownToLine } from "lucide-react";
+import { UilAndroid } from "@iconscout/react-unicons";
 // import { useEffect, useMemo, useState } from "react";
 
 // type RegionKey = "cairo" | "cities" | "villages";
@@ -505,6 +507,19 @@ export default function BinaaCostEstimator() {
               }}
             >
               اطلب BOQ مفصل
+            </a>
+            <a
+              href="/src/mobile-app/Benaa Calculator.apk"
+              className="px-4 py-2 border rounded-md text-amber-900 font-semibold"
+              download
+            >
+              تحميل التطبيق
+              <ArrowDownToLine className="inline-block mr-2" />
+            </a>
+
+            <a className="flex justify-content align-center text-red-600 text-xs ">
+              هذا التطبيق متاح فقط للاندرويد
+              <UilAndroid className="inline-block mr-2" />
             </a>
           </div>
         </div>
