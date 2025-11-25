@@ -12,9 +12,9 @@ const Header = () => {
     { label: "موارد البناء", href: "/suppliers" },
     { label: "ابدأ مشروعك", href: "/start-project" },
     { label: "العمل الحر", href: "/freelance" },
-    { label: "الأكاديمية", href: "/academy" },
-    { label: "الشركات", href: "/companies" },
-    { label: "المصادر", href: "/resources" },
+    // { label: "الأكاديمية", href: "/academy" },
+    // { label: "الشركات", href: "/companies" },
+    // { label: "المصادر", href: "/resources" },
     { label: "من نحن", href: "/about" },
     { label: "الدعم", href: "/support" },
   ];
