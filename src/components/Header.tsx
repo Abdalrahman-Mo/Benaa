@@ -10,7 +10,7 @@ const Header = () => {
     { label: "الرئيسية", href: "/" },
     { label: "الحاسبة الذكية", href: "/smart-calculator" },
     { label: "موارد البناء", href: "/suppliers" },
-    { label: "ابدأ مشروعك", href: "/start-project" },
+    // { label: "ابدأ مشروعك", href: "/start-project" },
     { label: "العمل الحر", href: "/freelance" },
     // { label: "الأكاديمية", href: "/academy" },
     // { label: "الشركات", href: "/companies" },
